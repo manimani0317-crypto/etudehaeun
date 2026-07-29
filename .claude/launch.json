@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "etude-dev",
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\npm.cmd",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "etude-static",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "C:\\Users\\haeun\\AppData\\Local\\Temp\\claude\\C--Users-haeun-Desktop-----------etudehaeun\\57b4a288-94fc-491d-b39b-3c0ce2457349\\scratchpad\\static-server.js",
+        "C:\\Users\\haeun\\Desktop\\이젠 아카데미하은\\etudehaeun\\static",
+        "3100"
+      ],
+      "port": 3100
+    }
+  ]
+}

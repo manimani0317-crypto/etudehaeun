@@ -1,0 +1,119 @@
+/**
+ * 메인페이지 전용 전역 스타일.
+ * Figma 에서 생성된 마크업(`data-name` 속성)에 인터랙션을 얹기 위한 규칙들로,
+ * 기존 App.tsx 의 인라인 <style> 블록을 그대로 옮겨온 것입니다.
+ */
+
+/* 원본 매장찾기 섹션 숨기기 (OfflineSection 으로 대체) */
+[data-name="매장찾기"] {
+  visibility: hidden !important;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+[data-name="new_묶음"] > div:nth-child(1) [data-name="New_pic"] {
+  animation: floatUpDown 3.8s ease-in-out infinite;
+  animation-delay: 0s;
+}
+[data-name="new_묶음"] > div:nth-child(2) [data-name="New_pic"] {
+  animation: floatUpDown 4.2s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+[data-name="new_묶음"] > div:nth-child(3) [data-name="New_pic"] {
+  animation: floatUpDown 3.6s ease-in-out infinite;
+  animation-delay: 1.1s;
+}
+[data-name="new_묶음"] > div:nth-child(4) [data-name="New_pic"] {
+  animation: floatUpDown 4.5s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+[data-name="PC/Soonjung_Burton"] {
+  transition: background-color 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+[data-name="PC/Soonjung_Burton"]:hover {
+  background-color: #737373 !important;
+}
+[data-name="PC/Soonjung_Burton"]:hover p {
+  color: #ffffff !important;
+}
+[data-name="PC/Soonjung_Burton"]:hover svg path {
+  fill: #ffffff !important;
+}
+
+[data-name="soonjung_box01"],
+[data-name="soonjung_box02"],
+[data-name="soonjung_box03"] {
+  cursor: pointer;
+}
+[data-name="soonjung_box01"] [data-name="soonjung_img02"],
+[data-name="soonjung_box02"] [data-name="soonjung_img03"],
+[data-name="soonjung_box03"] [data-name="soonjung_img04"] {
+  transition: transform 0.3s ease;
+}
+[data-name="soonjung_box01"]:hover [data-name="soonjung_img02"],
+[data-name="soonjung_box02"]:hover [data-name="soonjung_img03"],
+[data-name="soonjung_box03"]:hover [data-name="soonjung_img04"] {
+  transform: scale(1.1);
+}
+
+/* ── Event 버튼 ───────────────────────────────────────────────
+   버튼1: 기본=아웃라인/핑크글씨, 호버=핑크배경/흰글씨          */
+[data-name="Event_Naver_more_ Button_pull"] {
+  background-color: transparent !important;
+  transition: background-color 0.25s ease;
+  cursor: pointer;
+}
+[data-name="Event_Naver_more_ Button_pull"] p {
+  color: #ff6aa1 !important;
+  transition: color 0.25s ease;
+}
+[data-name="Event_Naver_more_ Button_pull"]:hover {
+  background-color: #ff6aa1 !important;
+}
+[data-name="Event_Naver_more_ Button_pull"]:hover p {
+  color: #ffffff !important;
+}
+
+/* 버튼2·3: 기본=아웃라인/핑크글씨(유지), 호버=핑크배경/흰글씨  */
+[data-name="Event_Naver_more_ Button"],
+[data-name="Event_Amore_more_ Button"] {
+  transition: background-color 0.25s ease;
+  cursor: pointer;
+}
+[data-name="Event_Naver_more_ Button"]:hover,
+[data-name="Event_Amore_more_ Button"]:hover {
+  background-color: #ff6aa1 !important;
+}
+[data-name="Event_Naver_more_ Button"]:hover p,
+[data-name="Event_Amore_more_ Button"]:hover p {
+  color: #ffffff !important;
+}
+
+/* ── Event 이미지 호버: 박스는 그대로, 이미지만 110% 확대 ─── */
+[data-name="Event01"],
+[data-name="Event02"],
+[data-name="Event03"] {
+  cursor: pointer;
+}
+[data-name="Event01"] img,
+[data-name="Event02"] img,
+[data-name="Event03"] img {
+  transition: transform 0.35s ease;
+}
+[data-name="Event01"]:hover img,
+[data-name="Event02"]:hover img,
+[data-name="Event03"]:hover img {
+  transform: scale(1.1);
+}
