@@ -9,11 +9,14 @@
     },
     {
       "name": "etude-static",
-      "runtimeExecutable": "node",
+      "runtimeExecutable": "powershell",
       "runtimeArgs": [
-        "C:\\Users\\EZEN\\AppData\\Local\\Temp\\claude\\C--0723--------etudehaeun\\04eb4d78-92b9-4d4b-8b4f-57130e2172bb\\scratchpad\\static-server.js",
-        "C:\\0723김하은\\김하은\\etudehaeun\\static",
-        "3100"
+        "-ExecutionPolicy", "Bypass",
+        "-NoProfile",
+        "-File",
+        "C:\\Users\\EZEN\\AppData\\Local\\Temp\\claude\\C--0723--------etudehaeun\\04eb4d78-92b9-4d4b-8b4f-57130e2172bb\\scratchpad\\Serve-Static.ps1",
+        "-Root", "C:\\0723김하은\\김하은\\etudehaeun\\static",
+        "-Port", "3100"
       ],
       "port": 3100
     }

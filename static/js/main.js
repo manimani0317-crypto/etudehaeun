@@ -295,13 +295,18 @@
 
   /* ----- 링 모양을 결정하는 값들 (숫자만 바꾸면 형태가 달라집니다) ----- */
   var tabletInsta = window.matchMedia('(max-width: 1024px)').matches;
-  var GAP_NEAR   = tabletInsta ? 334 : 230; // 태블릿 시안: 활성 카드와 양옆 카드 중심 간격
-  var GAP_FAR    = tabletInsta ? 306 : 250; // 태블릿 시안: 276px 카드 + 30px 간격
-  var ROT_MAX    = tabletInsta ? 0 : 42;
-  var ROT_PER    = tabletInsta ? 0 : 32;
+  var GAP_NEAR   = 334; // (태블릿 전용) 활성 카드와 양옆 카드 중심 간격
+  var GAP_FAR    = 306; // (태블릿 전용) 276px 카드 + 30px 간격
+  /* 데스크톱은 카드를 "원통" 위에 올립니다.
+     가운데는 정면, 옆으로 갈수록 원통을 따라 안쪽으로 말려 들어가며(빨려가듯) 뒤로 물러납니다.
+       RADIUS  원통 반지름 — 클수록 완만하게 휘고 좌우로 더 넓게 퍼집니다
+       STEP    카드 한 칸당 각도 — 클수록 급하게 휩니다
+     현재 값 기준 카드 위치: ±376 / ±707 / ±953 (각도 20° / 40° / 60°) */
+  var RADIUS     = 1100;
+  var STEP_DEG   = 20;
   var SCALE_MID  = tabletInsta ? 1 : 1.2; // 태블릿은 활성 카드 자체를 332×600으로 렌더링
-  var SCALE_STEP = tabletInsta ? 0 : 0.09;
-  var SCALE_MIN  = tabletInsta ? 1 : 0.78;
+  var SCALE_STEP = tabletInsta ? 0 : 0;
+  var SCALE_MIN  = tabletInsta ? 1 : 1;
   var VISIBLE    = 3.2;   // 이보다 멀면 숨김
   var DRAG_STEP  = 260;   // 이 픽셀만큼 끌면 한 칸 돌아감
 
@@ -338,16 +343,25 @@
       var a = Math.abs(off);
       var dir = off === 0 ? 0 : (off > 0 ? 1 : -1);
 
-      // 가로 위치: 첫 칸은 GAP_NEAR, 그 뒤로는 GAP_FAR 씩
-      var x = dir * (a <= 1 ? a * GAP_NEAR : GAP_NEAR + (a - 1) * GAP_FAR);
-      // 눕는 각도: 오른쪽 카드는 오른쪽 끝이 뒤로 가도록 음수
-      var rotY = -dir * Math.min(ROT_MAX, a * ROT_PER);
+      var x, rotY, z;
+      if (tabletInsta) {
+        // 태블릿 시안은 평평한 일렬 배치입니다
+        x = dir * (a <= 1 ? a * GAP_NEAR : GAP_NEAR + (a - 1) * GAP_FAR);
+        rotY = 0;
+        z = 0;
+      } else {
+        /* 원통 위의 좌표. off 는 부호가 있고 드래그 중에는 소수라서
+           손가락을 따라 링 전체가 매끄럽게 돌아갑니다. */
+        var ang = off * STEP_DEG * Math.PI / 180;
+        x = RADIUS * Math.sin(ang);
+        z = RADIUS * (Math.cos(ang) - 1);   // 가운데는 0, 옆으로 갈수록 뒤로
+        rotY = -off * STEP_DEG;             // 카드가 항상 원통 바깥을 향하도록
+      }
+
       // 크기: 가운데가 가장 크고 멀어질수록 작아짐
       var scale = a < 1
         ? SCALE_MID - a * (SCALE_MID - 1)
         : Math.max(SCALE_MIN, 1 - (a - 1) * SCALE_STEP);
-      // 뒤로 밀어 원근감을 살림
-      var z = -a * 120;
 
       card.style.transform =
         'translate3d(' + x.toFixed(1) + 'px,0,' + z.toFixed(1) + 'px) ' +

@@ -568,7 +568,9 @@ body {
   position: relative;
   min-height: 10427px;
   width: 1920px;
-  zoom: tan(atan2(100vw, 1920px));
+  /* 100vw 는 세로 스크롤바 폭이 포함돼 가로 스크롤이 1px 생깁니다.
+     body 의 container-type: inline-size 덕분에 100cqw 는 스크롤바를 뺀 폭이라 딱 맞습니다. */
+  zoom: tan(atan2(100cqw, 1920px));
   overflow-x: clip;
   overflow-y: visible;
 }
@@ -3220,11 +3222,12 @@ body {
 .메인-footer {
   position: absolute;
   top: 9926px;
-  left: calc(1 / 2 * 100%);
+  /* 캔버스가 1920px 고정이므로 다른 섹션과 같이 left:0 기준으로 맞춥니다.
+     가운데 정렬로 두면 1920px 초과 화면에서 혼자 오른쪽으로 밀립니다. */
+  left: 0px;
   height: 501px;
   width: 1920px;
-  --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
-  translate: var(--tw-translate-x) var(--tw-translate-y);
+  translate: none;
   overflow: clip;
   background-color: #ffd3e3;
 }
@@ -5498,11 +5501,10 @@ body {
 .순정 {
   position: absolute;
   top: 3245px;
-  left: calc(1 / 2 * 100%);
+  left: 0px;
   height: 1080px;
   width: 1920px;
-  --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
-  translate: var(--tw-translate-x) var(--tw-translate-y);
+  translate: none;
   overflow: clip;
   background-color: var(--color-white);
 }
@@ -8364,12 +8366,11 @@ body {
 .이벤트 {
   position: absolute;
   top: 5405px;
-  left: calc(1 / 2 * 100%);
+  left: 0px;
   display: flex;
   height: 1080px;
   width: 1920px;
-  --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
-  translate: var(--tw-translate-x) var(--tw-translate-y);
+  translate: none;
   align-content: stretch;
   align-items: center;
   gap: 64px;
