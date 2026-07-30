@@ -558,11 +558,19 @@ input {
    클래스 이름은 Figma 레이어 이름(data-name)에서 따왔습니다.
    HTML 에서 class="..." 를 찾아 여기 같은 이름의 규칙을 고치면 됩니다. */
 
+/* 1920px Figma 캔버스를 브라우저의 실제 가로 폭에 맞춰 통째로 확대/축소합니다.
+   내부 요소의 절대 좌표는 유지되어 최신 섹션 작업의 배치를 건드리지 않습니다. */
+body {
+  container-type: inline-size;
+}
+
 .page {
   position: relative;
   min-height: 10427px;
-  min-width: 1920px;
-  overflow: visible;
+  width: 1920px;
+  zoom: tan(atan2(100vw, 1920px));
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 /* 메인페이지 */
@@ -11444,6 +11452,552 @@ input {
 /* 화살표를 누르면 창이 조금 아래로 내려옵니다 */
 .main_look_card_00-div-3.is-open .look-panel {
   transform: translateY(44px);
+}
+
+/* =====================================================================
+   TABLET — Figma 768px layout (node 8580:4925)
+   Desktop declarations above stay untouched; only tablet viewports use
+   the section geometry and reflow below.
+   ===================================================================== */
+@media (max-width: 1024px) {
+  .page {
+    width: 768px;
+    min-height: 9841px;
+    zoom: tan(atan2(100vw, 768px));
+  }
+
+  /* GMB */
+  .gmb {
+    width: 768px;
+    height: 80px;
+    padding: 26px 32px 20px;
+    gap: 10px;
+  }
+
+  .gmb-inner,
+  .gmb-div {
+    width: 704px;
+  }
+
+  .gmb-inner {
+    gap: 0;
+  }
+
+  .gmb-div {
+    height: 34px;
+  }
+
+  .gmb-div-3 {
+    padding: 8px 16px 8px 0;
+  }
+
+  .gmb-div-5,
+  .gmb-div-6,
+  .gmb-div-7 {
+    padding: 8px 16px 8px 8px;
+  }
+
+  .gmb-div-8 {
+    width: 90px;
+  }
+
+  .logo-2 {
+    width: 90px;
+    height: 27px;
+  }
+
+  .gnb-lnb {
+    top: 54px;
+    width: 768px;
+  }
+
+  /* Hero */
+  .메인슬라이더 {
+    top: 0;
+    left: 0;
+    width: 768px;
+    height: 755px;
+  }
+
+  .메인슬라이더-div {
+    width: 1920px;
+    height: 862px;
+  }
+
+  .logo {
+    top: 135px;
+    left: 0;
+    width: 2208px;
+    height: 320px;
+  }
+
+  .bboyong_thum_1 {
+    top: 248.73px;
+    left: 1231.73px;
+    width: 578.509px;
+    height: 578.509px;
+  }
+
+  .설명-텍스트 {
+    top: 519px;
+    left: 33px;
+    width: 774px;
+    gap: 30px;
+  }
+
+  .설명-텍스트-p-2 {
+    font-size: 42px;
+    line-height: 1;
+  }
+
+  .설명-텍스트-p-3 {
+    font-size: 23px;
+    line-height: 1.3;
+  }
+
+  /* Makeup look */
+  .메이크업 {
+    top: 862px;
+    left: 0;
+    width: 768px;
+    height: 1405px;
+    padding-left: 32px;
+    overflow: clip;
+  }
+
+  .pc_title-3 {
+    top: 0;
+    left: 32px;
+    width: 703px;
+    height: 105px;
+  }
+
+  .top-17 {
+    width: 703px;
+  }
+
+  .컨텐츠묶음-2 {
+    top: 165px;
+    left: 32px;
+    display: flex;
+    width: 736px;
+    height: 1240px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 32px;
+    overflow: clip;
+  }
+
+  .main_look_card_00 {
+    position: relative;
+    top: auto;
+    width: 703px;
+    height: 752px;
+  }
+
+  .main_look_card_00-div {
+    top: 645px;
+    width: 703px;
+  }
+
+  .main_look_card_00-div-3 {
+    top: 16px;
+    left: 16px;
+    height: 736px;
+  }
+
+  .세로슬라이더 {
+    display: flex;
+    width: 1806px;
+    height: 456px;
+    grid-template-columns: none;
+    grid-template-rows: none;
+    column-gap: 30px;
+    row-gap: 0;
+  }
+
+  .n-1, .n-2, .n-3, .n-4, .n-5, .n-6 {
+    width: 276px;
+    height: 456px;
+    flex: 0 0 276px;
+  }
+
+  /* What's New */
+  .new {
+    top: 2367px;
+    left: 0;
+    width: 768px;
+    height: 926px;
+  }
+
+  .new_background_fabric {
+    top: 236px;
+    left: -86px;
+    width: 1919px;
+    height: 640px;
+    translate: none;
+  }
+
+  .컨텐츠묶음 {
+    top: 98px;
+    left: 32px;
+    width: 1478px;
+    align-items: flex-start;
+    gap: 60px;
+  }
+
+  .pc_title {
+    width: 704px;
+  }
+
+  .top-9 {
+    width: 704px;
+  }
+
+  .new_묶음 {
+    width: 1478px;
+  }
+
+  /* Soon Jung */
+  .순정 {
+    top: 3404px;
+    left: 0;
+    width: 768px;
+    height: 853px;
+    translate: none;
+    background-color: #7db8ff;
+  }
+
+  .순정::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 289px;
+    background: #fff;
+  }
+
+  .순정-div {
+    top: 0;
+    left: 32px;
+    display: block;
+    width: 704px;
+    height: 853px;
+  }
+
+  .soonjung_side {
+    position: static;
+    display: block;
+  }
+
+  .pc_title-2 {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 704px;
+    height: 237px;
+  }
+
+  .soonjung_title {
+    gap: 24px;
+  }
+
+  .soonjung_img01 {
+    position: absolute;
+    top: 30px;
+    left: 463px;
+    width: 241px;
+    height: 101px;
+  }
+
+  .soonjung_side-div {
+    position: absolute;
+    top: 382px;
+    left: 0;
+    width: 704px;
+    height: 471px;
+    gap: 0;
+    align-items: flex-start;
+  }
+
+  .soonjung_box01,
+  .soonjung_box02,
+  .soonjung_box03 {
+    width: 234.667px;
+    gap: 20px;
+  }
+
+  /* Offline store */
+  .div-20 {
+    top: 4533px;
+    left: 0;
+    width: 768px;
+    height: 970px;
+  }
+
+  .div-32 {
+    top: 0;
+    left: 34px;
+    width: 702px;
+    height: 132px;
+    gap: 14px;
+  }
+
+  .offline-txt-group {
+    gap: 8px;
+  }
+
+  .div-34 {
+    position: absolute;
+    top: 35px;
+    left: 552px;
+  }
+
+  .div-21 {
+    top: 191px;
+    left: -85px;
+    width: 921px;
+    height: 528px;
+  }
+
+  .img-8,
+  .img-9 {
+    top: -371px;
+    left: -71px;
+    width: 1234px;
+    height: 1152px;
+  }
+
+  .div-25 {
+    top: 150px;
+    left: -227px;
+  }
+
+  .div-26 {
+    top: 229.79px;
+    left: 137.35px;
+  }
+
+  .div-27 {
+    top: 346px;
+    left: 228.94px;
+    width: 265.057px;
+  }
+
+  .div-37 {
+    top: 748px;
+    left: 34px;
+    display: flex;
+    width: 702px;
+    height: 222px;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .div-37 > .hr,
+  .div-37 > .hr-2 {
+    display: none;
+  }
+
+  .div-38,
+  .div-45,
+  .div-52 {
+    width: 234px;
+    flex: 0 0 234px;
+  }
+
+  .div-39,
+  .div-46,
+  .div-53 {
+    min-height: 160px;
+    align-items: flex-start;
+    padding: 12px 12px 8px 0;
+  }
+
+  /* Event */
+  .이벤트 {
+    top: 5582px;
+    left: 0;
+    display: block;
+    width: 768px;
+    height: 1080px;
+    translate: none;
+    padding: 0;
+  }
+
+  .event_model {
+    display: none;
+  }
+
+  .이벤트-div {
+    position: absolute;
+    top: 138.5px;
+    left: 32px;
+    width: 955px;
+    gap: 90px;
+  }
+
+  .이벤트-div-2 {
+    width: 926px;
+    height: 107px;
+  }
+
+  .이벤트-div-3 {
+    width: 955px;
+    gap: 20px;
+  }
+
+  .txtevent_box01,
+  .txtevent_box01-2,
+  .txtevent_box01-3 {
+    width: 305px;
+    flex: 0 0 305px;
+  }
+
+  /* Instagram */
+  .insta-sec {
+    top: 6680px;
+    left: 0;
+    width: 768px;
+    height: 989px;
+    justify-content: center;
+    gap: 88px;
+  }
+
+  .insta-head {
+    width: 704px;
+  }
+
+  .insta-title-b,
+  .insta-title-bar {
+    display: none;
+  }
+
+  .insta-iconbox {
+    width: auto;
+    padding-top: 16px;
+  }
+
+  .insta-list {
+    width: 768px;
+    height: 620px;
+    perspective: none;
+  }
+
+  .insta-card {
+    box-shadow: none;
+  }
+
+  .insta-card.is-active {
+    box-shadow: none;
+  }
+
+  /* Since 1985 */
+  .since-sec {
+    top: 7861px;
+    left: 0;
+    width: 768px;
+    height: 1396px;
+  }
+
+  .since-box {
+    top: 81px;
+    left: 36px;
+    gap: 0;
+  }
+
+  .since-badge {
+    background-color: #ffd3e3;
+  }
+
+  .since-more {
+    display: none;
+  }
+
+  .since-line {
+    top: 304px;
+    left: 385px;
+    width: 1px;
+    height: 1091px;
+    background-color: #ffd3e3;
+  }
+
+  .since-line-img {
+    display: none;
+  }
+
+  .since-pic[data-name="since01"] { top: 683px; left: 25px; width: 147.184px; height: 244px; }
+  .since-pic[data-name="since02"] { top: 842px; left: 559px; width: 186px; height: 234px; }
+  .since-pic[data-name="since03"] { top: 1020px; left: 57px; width: 153.461px; height: 268.358px; }
+  .since-pic[data-name="since04"] { top: 238px; left: 571px; width: 121px; height: 237px; }
+  .since-pic[data-name="since05"] { top: 461px; left: 63px; width: 142.056px; height: 168.268px; }
+  .since-pic[data-name="since06"] { top: 620px; left: 563px; width: 193px; height: 149px; }
+
+  .since-sec > .since-tag:nth-of-type(10) { top: 399px; left: 377px; }
+  .since-sec > .since-tag:nth-of-type(11) { top: 541px; left: 217px; }
+  .since-sec > .since-tag:nth-of-type(12) { top: 683px; left: 377px; }
+  .since-sec > .since-tag:nth-of-type(13) { top: 825px; left: 169px; }
+  .since-sec > .since-tag:nth-of-type(14) { top: 967px; left: 377px; }
+  .since-sec > .since-tag:nth-of-type(15) { top: 1109px; left: 222px; }
+
+  .since-conn {
+    width: 16px;
+    height: 34px;
+    border-radius: 0;
+    background: radial-gradient(circle at center, #ff6aa1 0 6px, transparent 6.5px);
+  }
+
+  /* Footer */
+  .메인-footer {
+    top: 9255px;
+    left: 0;
+    width: 768px;
+    height: 586px;
+    translate: none;
+  }
+
+  .메인-footer-div-2 {
+    top: 50px;
+    left: 32px;
+    width: 564px;
+    translate: none;
+  }
+
+  .메인-footer-div-13 {
+    top: 95px;
+    left: 32px;
+  }
+
+  .메인-footer-div-17 {
+    top: 158px;
+    left: 392px;
+  }
+
+  .메인-footer-div-20 {
+    top: 158px;
+    left: 32px;
+  }
+
+  .footer-logo {
+    top: 423px;
+    left: 32px;
+    width: 539px;
+    height: 163px;
+  }
+
+  .footer-sns {
+    top: 340px;
+    left: 697px;
+  }
+
+  .footer-sns-row {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 
 .look-track {

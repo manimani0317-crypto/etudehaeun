@@ -230,9 +230,8 @@
      · 클릭하면 그 카드가 가운데로
      · 좌우로 드래그하면 손가락을 따라 링이 부드럽게 돌아감
 
-   ※ 지금은 이미지(<img class="insta-card-media">)입니다.
-      영상으로 바꾸려면 같은 자리에 아래처럼 넣으면 그대로 동작합니다.
-        <video class="insta-card-media" src="..." muted loop playsinline poster="..."></video>
+   ※ 카드 미디어는 muted · loop · playsinline 영상입니다.
+      가운데 카드는 자동 재생하고, 양옆 카드는 호버하는 동안 재생합니다.
    ========================================================================= */
 (function () {
   'use strict';
@@ -245,13 +244,14 @@
   if (!n) return;
 
   /* ----- 링 모양을 결정하는 값들 (숫자만 바꾸면 형태가 달라집니다) ----- */
-  var GAP_NEAR   = 230;   // 가운데 ↔ 바로 옆 카드 간격(px)
-  var GAP_FAR    = 250;   // 그 바깥으로 한 칸 더 갈 때마다 벌어지는 간격
-  var ROT_MAX    = 42;    // 옆으로 갈수록 눕는 최대 각도(deg)
-  var ROT_PER    = 32;    // 한 칸당 눕는 각도
+  var tabletInsta = window.matchMedia('(max-width: 1024px)').matches;
+  var GAP_NEAR   = tabletInsta ? 334 : 230; // 태블릿 시안: 활성 카드와 양옆 카드 중심 간격
+  var GAP_FAR    = tabletInsta ? 306 : 250; // 태블릿 시안: 276px 카드 + 30px 간격
+  var ROT_MAX    = tabletInsta ? 0 : 42;
+  var ROT_PER    = tabletInsta ? 0 : 32;
   var SCALE_MID  = 1.2;   // 가운데 카드 확대 배율 (276*1.2 ≈ 332)
-  var SCALE_STEP = 0.09;  // 한 칸 멀어질 때마다 줄어드는 비율
-  var SCALE_MIN  = 0.78;
+  var SCALE_STEP = tabletInsta ? 0 : 0.09;
+  var SCALE_MIN  = tabletInsta ? 1 : 0.78;
   var VISIBLE    = 3.2;   // 이보다 멀면 숨김
   var DRAG_STEP  = 260;   // 이 픽셀만큼 끌면 한 칸 돌아감
 
@@ -261,7 +261,7 @@
   var startX = 0;
   var startPos = 0;
 
-  /* ----- 영상 재생/정지 (img 면 아무 일도 하지 않음) ----- */
+  /* ----- 영상 재생/정지 ----- */
   function setPlaying(card, on) {
     var media = card.querySelector('.insta-card-media');
     if (!media || typeof media.play !== 'function') return;
