@@ -9340,7 +9340,7 @@ body {
   flex-shrink: 0;
   align-content: stretch;
   align-items: center;
-  gap: 12px;
+  gap: 0;
 }
 
 /* GMB */
@@ -12407,8 +12407,7 @@ body {
   border: 0;
   border-bottom: 1px solid transparent;
   background: transparent;
-  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.2s ease;
+  transition: none;
 }
 
 .search.is-open {
