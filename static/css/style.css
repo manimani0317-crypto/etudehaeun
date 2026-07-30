@@ -6418,7 +6418,7 @@ body {
 .main_look_card_00 {
   position: sticky;
   top: 0px;
-  height: 820px;
+  height: 810px;
   width: 623px;
   flex-shrink: 0;
   overflow: clip;
@@ -6496,10 +6496,10 @@ body {
 .main_look_card_00-div-3 {
   pointer-events: none;
   position: absolute;
-  top: 14px;
+  top: 16px;
   bottom: 0px;
-  left: 14px;
-  height: 806px;
+  left: 16px;
+  height: 794px;
 }
 
 .main_look_card_00-div-4 {
@@ -6508,7 +6508,7 @@ body {
   top: 0px;
   display: flex;
   height: 62px;
-  width: 316px;
+  width: 336px;
   align-content: stretch;
   align-items: center;
   justify-content: space-between;
@@ -12090,7 +12090,7 @@ body {
 .look-slide-thumb {
   position: relative;
   width: 46px;
-  height: 46px;
+  height: 66px;
   flex-shrink: 0;
   overflow: hidden;
   border-radius: 6px;
@@ -12252,4 +12252,233 @@ body {
 .look-card:hover .look-more {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Makeup Look mini products — Figma desktop 8406:1672 / component 8524:3864 */
+.main_look_card_00-div-3 {
+  width: 336px;
+}
+
+.look-panel {
+  position: relative;
+  width: 336px;
+  height: 62px;
+  gap: 0;
+  overflow: clip;
+  border-radius: 8px;
+  background: #fff;
+  transform: none;
+}
+
+.main_look_card_00-div-4 {
+  position: relative;
+  width: 336px;
+  height: 62px;
+  flex: 0 0 62px;
+  overflow: clip;
+}
+
+.look-track {
+  width: 280px !important;
+  height: 62px;
+  flex: 0 0 280px;
+  overflow: visible;
+  transform: none !important;
+  transition: none;
+}
+
+.look-slide {
+  display: none;
+  width: 280px !important;
+  height: 62px;
+  flex: 0 0 280px;
+  align-items: center;
+  gap: 20px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.look-slide:first-child {
+  display: flex;
+}
+
+.look-slide-thumb {
+  width: 58px;
+  height: 62px;
+  flex: 0 0 58px;
+  border-radius: 4px;
+  background: rgba(255, 135, 135, 0.2);
+}
+
+.look-slide-thumb img {
+  position: absolute;
+  top: 11.44%;
+  left: -36.45%;
+  width: 173.63%;
+  height: 77.84%;
+  max-width: none;
+  object-fit: fill;
+}
+
+.look-slide-txt {
+  width: 202px;
+  flex: 0 0 202px;
+}
+
+.look-toggle {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  margin-right: 10px;
+}
+
+.look-dots {
+  display: none;
+}
+
+.main_look_card_00-div-3.is-open .look-panel {
+  width: 336px;
+  height: 159px;
+  border-radius: 12px;
+  transform: none;
+}
+
+.main_look_card_00-div-3.is-open .main_look_card_00-div-4 {
+  width: 336px;
+  height: 159px;
+  flex-basis: 159px;
+  align-items: flex-start;
+  border-radius: 12px;
+}
+
+.main_look_card_00-div-3.is-open .look-track {
+  width: 272px !important;
+  height: 159px;
+  flex: 0 0 272px;
+  flex-direction: column;
+}
+
+.main_look_card_00-div-3.is-open .look-slide {
+  display: flex;
+  width: 227px !important;
+  height: 53px;
+  flex: 0 0 53px;
+  gap: 20px;
+}
+
+.main_look_card_00-div-3.is-open .look-slide-thumb {
+  width: 58px;
+  height: 53px;
+  flex-basis: 58px;
+}
+
+.main_look_card_00-div-3.is-open .look-slide:nth-child(2) .look-slide-thumb img,
+.main_look_card_00-div-3.is-open .look-slide:nth-child(3) .look-slide-thumb img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.main_look_card_00-div-3.is-open .look-slide:nth-child(3) .look-slide-thumb {
+  background: rgba(255, 226, 119, 0.2);
+}
+
+.main_look_card_00-div-3.is-open .look-slide-txt {
+  width: 149px;
+  flex-basis: 149px;
+}
+
+.main_look_card_00-div-3.is-open .look-toggle {
+  margin: 10px 10px 0 0;
+}
+
+.main_look_card_00-div-3.is-open .look-toggle-svg {
+  transform: rotate(-90deg);
+}
+
+/* GNB search — Figma component 8571:2789 */
+.search {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  justify-content: flex-end;
+  overflow: clip;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s ease;
+}
+
+.search.is-open {
+  width: 165px;
+  border-bottom-color: #ffd3e3;
+}
+
+.search-input {
+  width: 0;
+  min-width: 0;
+  height: 23px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: 'Pretendard Variable', sans-serif;
+  font-size: 14px;
+  line-height: 23px;
+  color: #3b3638;
+  caret-color: #ff6aa1;
+  opacity: 0;
+  pointer-events: none;
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.15s ease;
+}
+
+.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search.is-open .search-input {
+  width: 141px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-toggle {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.search-toggle:focus-visible {
+  border-radius: 4px;
+  outline: 1px solid #ffd3e3;
+  outline-offset: 1px;
+}
+
+.icon_black_24-5 {
+  width: 24px;
+  height: 24px;
+}
+
+.gnb-logo-img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-2 .logo-3 {
+  display: none;
 }

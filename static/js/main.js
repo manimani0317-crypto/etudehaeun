@@ -120,6 +120,56 @@
     });
   })();
 
+  /* ----- GNB 검색 ------------------------------------------------------ */
+  (function () {
+    var searchForm = document.querySelector('[data-search]');
+    if (!searchForm) return;
+
+    var searchInput = searchForm.querySelector('[data-search-input]');
+    var searchToggle = searchForm.querySelector('[data-search-toggle]');
+    if (!searchInput || !searchToggle) return;
+
+    function openSearch() {
+      searchForm.classList.add('is-open');
+      searchToggle.setAttribute('aria-expanded', 'true');
+      searchToggle.setAttribute('aria-label', '검색창 닫기');
+
+      var gmb = searchForm.closest('.gmb');
+      if (gmb) gmb.removeAttribute('data-lnb-open');
+
+      window.requestAnimationFrame(function () {
+        searchInput.focus();
+      });
+    }
+
+    function closeSearch(returnFocus) {
+      searchForm.classList.remove('is-open');
+      searchToggle.setAttribute('aria-expanded', 'false');
+      searchToggle.setAttribute('aria-label', '검색창 열기');
+      if (returnFocus) searchToggle.focus();
+    }
+
+    searchToggle.addEventListener('click', function () {
+      if (searchForm.classList.contains('is-open')) closeSearch(true);
+      else openSearch();
+    });
+
+    searchForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      if (!searchInput.value.trim()) closeSearch(true);
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!searchForm.contains(event.target)) closeSearch(false);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && searchForm.classList.contains('is-open')) {
+        closeSearch(true);
+      }
+    });
+  })();
+
   var section = document.querySelector('[data-offline-section]');
   if (!section) return;
 
@@ -394,64 +444,24 @@
 
   var track = panel.querySelector('[data-look-track]');
   var toggle = panel.querySelector('[data-look-toggle]');
-  var dots = Array.prototype.slice.call(panel.querySelectorAll('[data-look-dot]'));
   var slides = Array.prototype.slice.call(panel.querySelectorAll('.look-slide'));
   if (!track || !toggle || !slides.length) return;
 
-  var idx = 0;
   var open = false;
 
   function render() {
-    track.style.transform = 'translateX(' + (-idx * 100 / slides.length) + '%)';
-    dots.forEach(function (d, i) { d.classList.toggle('is-on', i === idx); });
-  }
-
-  function goTo(i) {
-    idx = Math.max(0, Math.min(slides.length - 1, i));
-    render();
+    panel.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? '아이템 접기' : '아이템 더 보기');
   }
 
   // 트랙 전체 너비를 슬라이드 수만큼 잡아 줍니다
-  track.style.width = (slides.length * 100) + '%';
-  slides.forEach(function (s) { s.style.width = (100 / slides.length) + '%'; });
-
   toggle.addEventListener('click', function (e) {
     e.stopPropagation();
     open = !open;
-    panel.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (!open) goTo(0);
-  });
-
-  dots.forEach(function (d) {
-    d.addEventListener('click', function (e) {
-      e.stopPropagation();
-      goTo(Number(d.getAttribute('data-look-dot')));
-    });
+    render();
   });
 
   /* 열린 상태에서 좌우 드래그로 넘기기 */
-  var startX = null;
-  var down = false;
-
-  track.addEventListener('pointerdown', function (e) {
-    if (!open) return;
-    down = true;
-    startX = e.clientX;
-    track.setPointerCapture(e.pointerId);
-  });
-
-  function end(e) {
-    if (!down) return;
-    down = false;
-    var dx = e.clientX - startX;
-    startX = null;
-    if (dx < -40) goTo(idx + 1);
-    else if (dx > 40) goTo(idx - 1);
-  }
-
-  track.addEventListener('pointerup', end);
-  track.addEventListener('pointercancel', end);
-
   render();
 })();
