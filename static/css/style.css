@@ -11692,13 +11692,16 @@ body {
 
   .pc_title-2 {
     position: absolute;
-    top: 30px;
+    top: 0;
     left: 0;
     width: 704px;
-    height: 237px;
+    height: 267px;
   }
 
   .soonjung_title {
+    position: absolute;
+    top: 30px;
+    left: 0;
     gap: 24px;
   }
 
@@ -11708,6 +11711,10 @@ body {
     left: 463px;
     width: 241px;
     height: 101px;
+  }
+
+  .soonjung_img05 {
+    display: none;
   }
 
   .soonjung_side-div {
@@ -11747,6 +11754,21 @@ body {
     gap: 8px;
   }
 
+  .offline-txt-group > div {
+    display: flex;
+    gap: 6px;
+  }
+
+  .p-19,
+  .p-20,
+  .offline-note {
+    white-space: nowrap;
+  }
+
+  .offline-note {
+    width: 702px;
+  }
+
   .div-34 {
     position: absolute;
     top: 35px;
@@ -11782,6 +11804,12 @@ body {
     top: 346px;
     left: 228.94px;
     width: 265.057px;
+    height: 107.671px;
+  }
+
+  .div-28 {
+    box-sizing: border-box;
+    height: 88px;
   }
 
   .div-37 {
@@ -11813,9 +11841,38 @@ body {
   .div-39,
   .div-46,
   .div-53 {
+    position: relative;
+    display: block;
     min-height: 160px;
-    align-items: flex-start;
-    padding: 12px 12px 8px 0;
+    height: 202px;
+    padding: 0;
+  }
+
+  .div-39 {
+    width: 224.667px;
+    margin: 10px 0 0 10px;
+  }
+
+  .div-46,
+  .div-53 {
+    width: 214px;
+    margin: 10px 0 0 20px;
+  }
+
+  .div-40,
+  .div-47,
+  .div-54 {
+    position: absolute;
+    top: 72px;
+    left: 0;
+  }
+
+  .div-43,
+  .div-50,
+  .div-57 {
+    position: absolute;
+    top: 12px;
+    left: 0;
   }
 
   /* Event */
@@ -11884,7 +11941,7 @@ body {
 
   .insta-list {
     width: 768px;
-    height: 620px;
+    height: 600px;
     perspective: none;
   }
 
@@ -11893,6 +11950,10 @@ body {
   }
 
   .insta-card.is-active {
+    width: 332px;
+    height: 600px;
+    margin-left: -166px;
+    margin-top: -300px;
     box-shadow: none;
   }
 
@@ -11930,19 +11991,21 @@ body {
     display: none;
   }
 
-  .since-pic[data-name="since01"] { top: 683px; left: 25px; width: 147.184px; height: 244px; }
-  .since-pic[data-name="since02"] { top: 842px; left: 559px; width: 186px; height: 234px; }
-  .since-pic[data-name="since03"] { top: 1020px; left: 57px; width: 153.461px; height: 268.358px; }
-  .since-pic[data-name="since04"] { top: 238px; left: 571px; width: 121px; height: 237px; }
-  .since-pic[data-name="since05"] { top: 461px; left: 63px; width: 142.056px; height: 168.268px; }
-  .since-pic[data-name="since06"] { top: 620px; left: 563px; width: 193px; height: 149px; }
+  /* These nodes carry desktop coordinates as inline styles in the export,
+     so tablet geometry intentionally wins with !important. */
+  .since-pic[data-name="since01"] { top: 683px !important; left: 25px !important; width: 147.184px !important; height: 244px !important; transform: none !important; }
+  .since-pic[data-name="since02"] { top: 842px !important; left: 559px !important; width: 186px !important; height: 234px !important; transform: none !important; }
+  .since-pic[data-name="since03"] { top: 1020px !important; left: 57px !important; width: 153.461px !important; height: 268.358px !important; transform: rotate(0.17deg) !important; }
+  .since-pic[data-name="since04"] { top: 238px !important; left: 571px !important; width: 121px !important; height: 237px !important; transform: none !important; }
+  .since-pic[data-name="since05"] { top: 461px !important; left: 63px !important; width: 142.056px !important; height: 168.268px !important; transform: rotate(-1.93deg) !important; }
+  .since-pic[data-name="since06"] { top: 620px !important; left: 563px !important; width: 193px !important; height: 149px !important; transform: none !important; }
 
-  .since-sec > .since-tag:nth-of-type(10) { top: 399px; left: 377px; }
-  .since-sec > .since-tag:nth-of-type(11) { top: 541px; left: 217px; }
-  .since-sec > .since-tag:nth-of-type(12) { top: 683px; left: 377px; }
-  .since-sec > .since-tag:nth-of-type(13) { top: 825px; left: 169px; }
-  .since-sec > .since-tag:nth-of-type(14) { top: 967px; left: 377px; }
-  .since-sec > .since-tag:nth-of-type(15) { top: 1109px; left: 222px; }
+  .since-sec > .since-tag:nth-of-type(10) { top: 399px !important; left: 377px !important; }
+  .since-sec > .since-tag:nth-of-type(11) { top: 541px !important; left: 217px !important; }
+  .since-sec > .since-tag:nth-of-type(12) { top: 683px !important; left: 377px !important; }
+  .since-sec > .since-tag:nth-of-type(13) { top: 825px !important; left: 169px !important; }
+  .since-sec > .since-tag:nth-of-type(14) { top: 967px !important; left: 377px !important; }
+  .since-sec > .since-tag:nth-of-type(15) { top: 1109px !important; left: 222px !important; }
 
   .since-conn {
     width: 16px;
@@ -11961,7 +12024,7 @@ body {
   }
 
   .메인-footer-div-2 {
-    top: 50px;
+    top: 56px;
     left: 32px;
     width: 564px;
     translate: none;
@@ -11990,13 +12053,22 @@ body {
   }
 
   .footer-sns {
-    top: 340px;
+    top: 334px;
     left: 697px;
   }
 
   .footer-sns-row {
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+/* The Figma tablet canvas is exactly 768px wide.  Keeping a calculated
+   zoom of 1 on very tall pages can make Chromium reuse the wrong paint
+   tile near the bottom, so the native tablet width renders at true 1:1. */
+@media (width: 768px) {
+  .page {
+    zoom: 1;
   }
 }
 

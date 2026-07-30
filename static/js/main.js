@@ -249,7 +249,7 @@
   var GAP_FAR    = tabletInsta ? 306 : 250; // 태블릿 시안: 276px 카드 + 30px 간격
   var ROT_MAX    = tabletInsta ? 0 : 42;
   var ROT_PER    = tabletInsta ? 0 : 32;
-  var SCALE_MID  = 1.2;   // 가운데 카드 확대 배율 (276*1.2 ≈ 332)
+  var SCALE_MID  = tabletInsta ? 1 : 1.2; // 태블릿은 활성 카드 자체를 332×600으로 렌더링
   var SCALE_STEP = tabletInsta ? 0 : 0.09;
   var SCALE_MIN  = tabletInsta ? 1 : 0.78;
   var VISIBLE    = 3.2;   // 이보다 멀면 숨김
