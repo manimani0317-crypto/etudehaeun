@@ -1,15 +1,5 @@
-# dependencies
+# dependencies (이 저장소는 npm 프로젝트가 아니지만, 실수로 커밋되는 것 방지)
 /node_modules
-/.pnp
-.pnp.*
-
-# next.js
-/.next/
-/out/
-next-env.d.ts
-
-# production
-/build
 
 # misc
 .DS_Store
@@ -17,25 +7,9 @@ next-env.d.ts
 Thumbs.db
 desktop.ini
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files
-.env*
-!.env.example
-
-# typescript
-*.tsbuildinfo
-
 # editor
 .vscode/*
 !.vscode/settings.json
 
 # claude 개인 설정 (공유하지 않음)
 .claude/settings.local.json
-
-# public folder (Next.js auto-generated)
-/public/images/
