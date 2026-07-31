@@ -1,5 +1,8 @@
 # ETUDE 메인페이지
 
+> 🤖 **AI 나 새 작업자라면 [`START-HERE.md`](START-HERE.md) 를 먼저 읽으세요.**
+> 하지 말 것, 환경 세팅, 현재 상태가 한 장에 정리돼 있습니다.
+
 Figma 시안([피그마 파일 복제](https://www.figma.com/design/WAaADtkHIFqUBf4a3keYkY/%ED%94%BC%EA%B7%B8%EB%A7%88-%ED%8C%8C%EC%9D%BC-%EB%B3%B5%EC%A0%9C))을 구현한 에뛰드 메인페이지입니다.
 
 **순수 HTML / CSS / JS 로만 되어 있습니다.** 프레임워크도, 빌드 도구도, `npm install` 도 필요 없습니다.
